@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>cocoapi</name>
+    <version>0.1.0</version>
+    <description>A ROS c++ package for cocoAPI</description>
+    <maintainer email="developers@plusone-robotics.com">Plus One Robotics, Inc.</maintainer>
+    <author>Piotr Dollar</author>
+    <author>Tsung-Yi Lin</author>
+    <license>BSD-2-Clause</license>
+    <buildtool_depend>catkin</buildtool_depend>
+    <!-- See requirements.txt file for additional python dependencies -->
+    <export/>
+</package>
