@@ -13,3 +13,15 @@ To install:
 -For Matlab, add coco/MatlabApi to the Matlab path (OSX/Linux binaries provided)
 -For Python, run "make" under coco/PythonAPI
 -For Lua, run “luarocks make LuaAPI/rocks/coco-scm-1.rockspec” under coco/
+-For c++ ROS catkin package, see below
+
+Build and usage with ROS packages (using catkin as an example):
+- Add this repo to your workspace
+- For a package that needs to use "cocoapi" (say "user_pkg") assign cocoapi as a dependency:
+  - set "<depend>cocoapi</depend>" in the "package.xml" for the "user_pkg"
+  - in your "CMakeLists.txt" for "user_pkg" set "find_package(catkin REQUIRED COMPONENTS cocoapi)"
+  - in your "CMakeLists.txt" for "user_pkg" set "catkin_package(... CATKIN_DEPENDS cocoapi)"
+  - in your "CMakeLists.txt" for "user_pkg" setting "include_directories(${catkin_INCLUDE_DIRS})" allows finding the headers
+  - in your "CMakeLists.txt" for "user_pkg" setting "target_link_libraries(... ${catkin_LIBRARIES})" allows linking the shared library for "cocoapi"
+- You may include the corresponding header in your sources with either `extern "C" { #include <cocoapi/maskApi.h> }` or `#include <cocoapi/maskApi.h>` depending on weather your application code is in 'c' or 'c++'
+- All methods and structs defined in the header may now be used in your source code
