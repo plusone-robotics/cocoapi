@@ -18,7 +18,7 @@ add_library(${PROJECT_NAME} SHARED
   src/maskApi.c
 )
 
-install(DIRECTORY include/
+install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
